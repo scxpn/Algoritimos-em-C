@@ -1,5 +1,5 @@
 #include<stdio.h>
-//Código baseado no Evellyne
+//Código baseado no Evellyne Anunciada
 
 main(){
 	//Apresentação da função do código
