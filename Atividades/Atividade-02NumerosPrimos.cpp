@@ -1,15 +1,33 @@
 #include<stdio.h>
+//Código baseado no Evellyne
 
 main(){
-    printf("A seguir os nuneros primos entre 1 e 100");
-    int primos;
-    primos=1;
-     printf("2\n3\n5\n7");
-      while(primos<100){
-     primos=primos+1;
-     if(primos %2 != 0 && primos %3 != 0 && primos %5 != 0 && primos %7 != 0){
-       printf("\n%d",primos);
-        }
-    }
+	//Apresentação da função do código
+    printf("Esses sao os numeros primos entre 1 e 100: ");
+    
+    //Declaração das variaveis
+    int counter, c, b= 2, a = 2;
+    
+    //Looping principal da execução
+    while( a < 100){
+    	
+    	while(b < a){
+    		if(a % b == 0){
+    			c = 1;
+    			
+			}
+    		b++;
+		}
+		
+		b = 2;
+		
+		if(c == 0){
+			printf("\n%d", a);
+			counter++;
+		}
+		c =0;
+		a++;
+		
+	}
 }
 
