@@ -28,33 +28,35 @@ main() {
 		}
 		
 		// insere o comando de andar do heroi (W A S D)
-		char comando;
-		scanf("%c", &comando);
+		char gatch(comando);
+		switch(comando){
 		
-		// limpa a tela (deleta o mapa anterior)
-		system("cls");
-		
-		// remove a posicao do heroi
-		mapa[horizontal][vertical] = '-';
-		
-		// move o heroi
-		if(comando == 'w') {
-			horizontal--;
+			
+			// limpa a tela (deleta o mapa anterior)
+			system("cls");
+			
+			// remove a posicao do heroi
+			mapa[horizontal][vertical] = '-';
+			
+			// move o heroi
+			if(comando == 'w') {
+				horizontal--;
+			}
+			
+			if(comando == 's') {
+				horizontal++;
+			}
+			
+			if(comando == 'a') {
+				vertical--;
+			}
+	
+			if(comando == 'd') {
+				vertical++;
+			}
+			
+			// atualiza a posicao do heroi
+			mapa[horizontal][vertical] = 'J';
 		}
-		
-		if(comando == 's') {
-			horizontal++;
-		}
-		
-		if(comando == 'a') {
-			vertical--;
-		}
-
-		if(comando == 'd') {
-			vertical++;
-		}
-		
-		// atualiza a posicao do heroi
-		mapa[horizontal][vertical] = 'J';
 	}
 }
