@@ -27,36 +27,36 @@ main() {
 			printf("\n");
 		}
 		
+		int getch(void);
 		// insere o comando de andar do heroi (W A S D)
-		char gatch(comando);
-		switch(comando){
+		char comando;
+		comando = getch();
+		switch(comando);
 		
-			
-			// limpa a tela (deleta o mapa anterior)
-			system("cls");
-			
-			// remove a posicao do heroi
-			mapa[horizontal][vertical] = '-';
-			
-			// move o heroi
-			if(comando == 'w') {
-				horizontal--;
-			}
-			
-			if(comando == 's') {
-				horizontal++;
-			}
-			
-			if(comando == 'a') {
-				vertical--;
-			}
-	
-			if(comando == 'd') {
-				vertical++;
-			}
-			
-			// atualiza a posicao do heroi
-			mapa[horizontal][vertical] = 'J';
+		// limpa a tela (deleta o mapa anterior)
+		system("cls");
+		
+		// remove a posicao do heroi
+		mapa[horizontal][vertical] = '-';
+		
+		// move o heroi
+		if(comando == 'w') {
+			horizontal--;
 		}
+		
+		if(comando == 's') {
+			horizontal++;
+		}
+		
+		if(comando == 'a') {
+			vertical--;
+		}
+
+		if(comando == 'd') {
+			vertical++;
+		}
+		
+		// atualiza a posicao do heroi
+		mapa[horizontal][vertical] = 'J';
 	}
 }
