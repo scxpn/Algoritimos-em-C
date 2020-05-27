@@ -42,6 +42,18 @@ main() {
 			horizontal--;
 		}
 		
+		if(comando == 's') {
+			horizontal++;
+		}
+		
+		if(comando == 'a') {
+			vertical--;
+		}
+
+		if(comando == 'd') {
+			vertical++;
+		}
+		
 		// atualiza a posicao do heroi
 		mapa[horizontal][vertical] = 'J';
 	}
