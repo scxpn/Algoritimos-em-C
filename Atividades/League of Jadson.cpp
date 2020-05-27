@@ -27,11 +27,9 @@ main() {
 			printf("\n");
 		}
 		
-		int getch(void);
 		// insere o comando de andar do heroi (W A S D)
 		char comando;
-		comando = getch();
-		switch(comando);
+		scanf("%c", &comando);
 		
 		// limpa a tela (deleta o mapa anterior)
 		system("cls");
