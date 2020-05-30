@@ -76,10 +76,6 @@ main() {
 		horizontal++;
 		}
 		
-		mapa[horizontal][vertical] = '-';
-
-	
-		
 		// Atualiza a posicao do heroi
 		mapa[horizontal][vertical] = 'J';
 		
