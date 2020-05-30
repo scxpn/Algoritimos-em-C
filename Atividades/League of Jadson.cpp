@@ -54,10 +54,7 @@ main() {
 			vertical++;
 		}
 		
-		// Atualiza a posicao do heroi
-		mapa[horizontal][vertical] = 'J';
-		
-		
+				
 		/*Parede invisivel*/
 		
 		/*#block vertical*/
@@ -82,5 +79,10 @@ main() {
 		mapa[horizontal][vertical] = '-';
 
 	
+		
+		// Atualiza a posicao do heroi
+		mapa[horizontal][vertical] = 'J';
+		
+
 	}
 }
