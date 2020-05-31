@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 
 main() {
 	// Variavel do mapa (matriz de caracteres)
@@ -29,7 +30,7 @@ main() {
 		
 		// Insere o comando de andar do heroi (W A S D)
 		char comando;
-		scanf("%c", &comando);
+		comando = getch();
 		
 		// Limpa a tela (deleta o mapa anterior)
 		system("cls");
