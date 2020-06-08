@@ -2,84 +2,149 @@
 #include <stdlib.h>
 #include <conio.h>
 
+void clearScreen();
+void printMap(char mapa[10][10]);
+void controlJ(char mapa[10][10], int *h,int *v);
+void map(char mapa[10][10], int h,int v);
+void coinC(char mapa[10][10], int *h,int *v,int *c,int *a,int *b,int *d,int *f,int *e,int *g,int *k,int *l,int *m,int *n,int *ca);
 main() {
-	// Variavel do mapa (matriz de caracteres)
+     int tru=0;
+     int count=0;
+
 	char mapa[10][10];
-		
-	// Preenche o mapa com traços
-	for(int i = 0; i < 10; i++) {
+
+	// Posicao do heroi
+	int y = 0;
+	int x = 4;
+
+	// Posicao das moedas
+	int m1x = 2,  m1y = 4;
+	int m2x = 5,  m2y = 7;
+	int m3x = 5,  m3y = 1;
+	int m4x = 7,  m4y = 3;
+	int m5x = 9,  m5y = 6;
+
+	// Preenche o mapa com traÃ§os
+    map(mapa, x, y);
+    mapa[x][y] = 'J';
+    // Adiciona as moedas
+    mapa[m1x][m1y] = 'M';
+    mapa[m2x][m2y] = 'M';
+    mapa[m3x][m3y] = 'M';
+    mapa[m4x][m4y] = 'M';
+    mapa[m5x][m5y] = 'M';
+
+
+	while(tru<1) {
+        //Contador
+        printf("MOEDAS: %d \n",count);
+		printMap(mapa);
+		// Move o heroi
+		controlJ(mapa,&x,&y);
+        clearScreen();
+        // AdiÃ§Ã£o de moedas
+        coinC(mapa,&x,&y,&count,&m1x,&m1y,&m2x,&m2y,&m3x,&m3y,&m4x,&m4y,&m5x,&m5y,&tru);
+
+
+	}
+     if(tru == 1){
+          // Fim de jogo
+            system("cls");
+			printf("\nTodas moedas foram recolhidas!\nVoce venceu!");
+        }
+}
+
+// Complementacao de voids
+
+// Verifica pontos
+void coinC(char mapa[10][10], int *h,int *v,int *c,int *a,int *b,int *d,int *f,int *e,int *g,int *k,int *l,int *m,int *n,int *ca){
+    if(*h == *a  && *v == *b){
+            *c= *c+ 1;
+            *a= -1;
+            *b= -1;
+        } else if(*h == *d  && *v == *f){
+         *c= *c+ 1;
+         *d= -1;
+         *f= -1;
+        } else if(*h == *e  && *v == *g){
+         *c= *c+ 1;
+         *e= -1;
+         *g= -1;
+        } else if(*h == *k  && *v == *l){
+         *c= *c+ 1;
+         *k= -1;
+         *l= -1;
+        }else if(*h == *m  && *v == *n){
+         *c= *c+ 1;
+         *m= -1;
+         *n= -1;
+        }
+        if(*c == 5){
+            *ca=1;
+        }
+
+}
+
+void map(char mapa[10][10], int h,int v){
+
+    for(int i = 0; i < 10; i++) {
 		for(int j = 0; j < 10; j++) {
 			mapa[i][j] = '-';
 		}
 	}
-	
-	// Posicao do heroi
-	int vertical = 0;
-	int horizontal = 4;
-	// Insere o heroi no mapa	
-	mapa[horizontal][vertical] = 'J';
-	
-	while(true) {
-		// Imprime o mapa
-		for(int i = 0; i < 10; i++) {
+
+}
+
+// Move o heroi
+void controlJ(char mapa[10][10], int *h,int *v){
+
+        // insere o comando de andar do heroi (W A S D)
+		char comando;
+		// recebe e atualiza o valor sem aperta enter
+		comando = getche();
+
+		// remove a posicao do heroi
+		mapa[*h][*v] = '-';
+
+        if(comando == 'w') {
+			*h=*h-1;
+		}
+        if(comando == 's') {
+			*h=*h+1;
+		}
+		if(comando == 'd') {
+			*v=*v+1;
+		}
+		if(comando == 'a') {
+			*v=*v-1;
+		}
+
+		if(*v  > 9){
+            *v= 9;
+        }
+        if(*v < 0){
+           *v= 0;
+        }
+        if(*h > 9){
+           *h= 9;
+        }
+        if(*h < 0){
+           *h= 0;
+        }
+        //Atualiza a posição do player
+		mapa[*h][*v] = 'J';
+
+}
+// Imprime o mapa
+void printMap(char mapa[10][10]){
+        for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 10; j++) {
 				printf("%c", mapa[i][j]);
 			}
 			printf("\n");
 		}
-		
-		// Insere o comando de andar do heroi (W A S D)
-		char comando;
-		comando = getch();
-		
-		// Limpa a tela (deleta o mapa anterior)
-		system("cls");
-		
-		// Remove a posicao do heroi
-		mapa[horizontal][vertical] = '-';
-		
-		// Move o heroi
-		if(comando == 'w') {
-			horizontal--;
-		}
-		
-		if(comando == 's') {
-			horizontal++;
-		}
-		
-		if(comando == 'a') {
-			vertical--;
-		}
-
-		if(comando == 'd') {
-			vertical++;
-		}
-		
-				
-		/*Parede invisivel*/
-		
-		/*#block vertical*/
-		if(vertical > 9){
-		vertical--;
-		}
-		
-		if(vertical < 0){
-		vertical++;
-		}
-		
-		
-		/*#block horizontal*/
-		if(horizontal > 9){
-		horizontal--;
-		}
-		
-		if(horizontal < 0){
-		horizontal++;
-		}
-		
-		// Atualiza a posicao do heroi
-		mapa[horizontal][vertical] = 'J';
-		
-
-	}
+}
+// Limpa a  tela
+void clearScreen(){
+        system("cls");
 }
