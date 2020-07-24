@@ -9,6 +9,9 @@ main(){
 	scanf("%d", &ultimo);
 	printf("\nDigite o penultimo numero da sequencia: ");
 	scanf("%d", &penultimo);
+	
+	printf("\n%d", ultimo);
+	printf("\n%d\n", penultimo);
 
 	while(penultimo > 0) {
 		auxiliar = ultimo - penultimo;
@@ -17,4 +20,3 @@ main(){
 		printf("%d\n", penultimo);
 	}
 }
-
